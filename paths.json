@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "pages/*": [ "src/pages/*" ],
+      "utils": [ "src/utils" ],
+      "utils/*": [ "src/utils/*" ],
+      "hooks": [ "src/hooks" ],
+      "api": [ "src/api" ],
+      "api/*": [ "src/api/*" ],
+      "hooks/*": [ "src/hooks/*" ],
+      "mocks": [ "src/mocks/*" ],
+      "assets": [ "src/assets/*" ],
+      "routes": [ "src/routes" ],
+      "routes/*": [ "src/routes/*" ],
+      "constants": [ "src/constants" ],
+      "constants/*": [ "src/constants/*" ],
+      "components": [ "src/components" ],
+      "components/*": [ "src/components/*" ],
+      "@/*": [ "src/*" ]
+    }
+  }
+}

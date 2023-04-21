@@ -1,0 +1,119 @@
+/**
+* @auth: dmx
+* @time: 2023/4/21
+* @func:
+**/
+
+// body 背景色
+@bodyColor: #f1f3f4;
+// 文字主色
+@fontColor: #1c1b1b;
+// 主色
+// 有些文字表示状态，比如冻结/正常 需要不同的颜色区分
+@error: #e1251b;
+@success: #6abf4b;
+// 警告色
+@warning: #ffa500;
+// 边框 分割线 等
+@borderColor: #e5ecef;
+// 置灰色eff5f8 hover se
+@textColor: #a3a3a3;
+// title 置灰色
+@titleColor: #575757;
+// 置灰, 内衬背景色
+@vague: #e9ebf0;
+// 图标默认状态, 角标色 箭头，颜色
+@defaultIconColor: #c0c4ca;
+// 表格以及list等 hover色
+@hoverColor: #eff5f8;
+// 说明类文本色
+@descTextColor: #a3a3a3;
+// 小标题色
+@subheadColor: #474747;
+
+// 顶部header 背景色
+@topHeaderBgColor: #252b3a;
+
+// 全局字体主色
+@globalDefaultColor: #191919;
+
+// 全局的box-shadow
+@boxShadow: 0 5px 5px #e5ecef;
+
+// ant-btn default 下新一版的边框色
+@antBtnColor: #ced4d7;
+
+
+/******* style basic **************************************************************************************************/
+// display 布局
+// cc 横纵两轴
+.fcc {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+// bc
+.fbc {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+// 文字超出长度，隐藏 1 此种方式与 flex 布局会有冲突
+.textVisible(@lineNumber) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display:-webkit-box; //作为弹性伸缩盒子模型显示。
+  -webkit-box-orient:vertical; //设置伸缩盒子的子元素排列方式--从上到下垂直排列
+  -webkit-line-clamp: @lineNumber; //显示的行
+  word-break: break-all; // 如果失效，加上这行，至于为什么，我也不知道。
+}
+// 文字超出长度，隐藏2
+.textVisible() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space:nowrap;
+}
+
+/******* style basic **************************************************************************************************/
+
+
+/******* fn mixins   **************************************************************************************************/
+
+// 动画生成器
+.creatTransition(@name, @enter, @enterActive, @exit: @enterActive, @exitActive: @enter, @time: .3s) {
+  .@{name}-enter {
+    @enter();
+
+    &.@{name}-enter-active {
+      transition: all @time;
+      @enterActive();
+    }
+  }
+
+  .@{name}-exit {
+    @exit();
+
+    &.@{name}-exit-active {
+      transition: all @time;
+      @exitActive();
+    }
+  }
+};
+
+// 媒体查询
+// 取中
+.media(@min, @max, @rules) {
+  @media screen and (min-width: @min) and (max-width: @max) { @rules() }
+}
+// 最大分辨率
+.media(@max, @isMax, @rules) when (@isMax = true) {
+  @media screen and (max-width: @max) { @rules() }
+}
+// 最小分辨率
+.media(@min, @rules) {
+  @media screen and (min-width: @min) { @rules() }
+}
+
+/******* fn mixins   **************************************************************************************************/
+

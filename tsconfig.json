@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "experimentalDecorators": true,
     "target": "es5",
     "lib": [
       "dom",
@@ -18,9 +19,27 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "keyofStringsOnly": true,
+    "sourceMap": true,
+    "rootDir": "src",
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noImplicitAny": true,
+    "importHelpers": true,
+    "strictNullChecks": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "noUnusedLocals": true,
+    "importsNotUsedAsValues": "remove",
+    "types": [
+      "node"
+    ]
   },
+  "exclude": [
+    "node_modules"
+  ],
   "include": [
-    "src"
-  ]
+    "src",
+  ],
+  "extends": "./paths.json"
 }
